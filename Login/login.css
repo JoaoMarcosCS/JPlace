@@ -1,0 +1,346 @@
+/*==========IMPORTAÇÃO DAS FONTES DO PACOTE*/
+@font-face{
+    font-family: Poppins-Regular;
+    src: url('../font/Poppins-Regular.ttf');
+}
+
+
+@font-face{
+    font-family: Poppins-Medium;
+    src: url('../font/Poppins-Medium.ttf');
+}
+
+
+@font-face{
+    font-family: Poppins-Bold;
+    src: url('../font/Poppins-Bold.ttf');
+}
+
+
+@font-face{
+    font-family: Poppins-SemiBold;
+    src: url('../font/Poppins-SemiBold.ttf');
+}
+
+html{
+    --detalhes-primario:#00d5ff;
+    --detalhes-secundario:#230b4d;
+    --background-primario:#f0f2f9;
+    --background-secundario:#ffffff;
+    --texto-primario:#1b1a1c;
+    --contorno-texto:#f7b705;
+    /*--letras-1:#1b1a1c;
+    --letras-2: #fcc203;
+    --background-1:#1a1918;*/
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins-Regular;
+}
+
+html{
+    background-color: var(--background-secundario);
+}
+
+.banner{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--background-primario);
+}
+
+
+.logo{
+    display: flex;
+    font-size: 39px;
+    letter-spacing: 1.5px;
+    font-family: Poppins-Bold;
+    width: 50%;
+    color:var(--texto-primario);
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img{
+    width: 50px;
+    height: 50px;
+}
+
+.menu-bar{
+    display: none;
+    flex-direction: row;
+    width: 50%;
+    margin-right: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.menu-bar > .menu-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+    font-family: Poppins-SemiBold;
+    cursor: pointer;
+    color: var(--texto-primario);
+}
+
+.menu-bar .menu-item a{
+    text-decoration: none;
+    padding-left: 5px;
+    position: relative;
+    color: var(--texto-primario);
+}
+.menu-bar .menu-item a::after{
+    content: '';
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 0.175rem;
+    transform: scale(0,1);
+    background-color: var(--contorno-texto);
+    transition: ease 0.2s;
+}
+.menu-bar .menu-item a:hover{
+    color: var(--contorno-texto);
+    font-weight: 800;
+}
+.menu-bar .menu-item a:hover::after{
+    transform: scale(1,1);
+    
+}
+
+.icone{
+    height: 32px;
+    width: 32px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.theme{
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+}
+
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.toggle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.toggle >label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: var(--detalhes-primario);
+    float: right;
+    border-radius: 100px;
+    position: relative;
+}
+
+.toggle> label::after{
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked + label {/*cor que vai ficar quando o o modo escuro estiver ativo*/
+    background-color: #230b4d;
+}
+
+input:checked + label::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 45px;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side{
+    width: 50vw;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    margin-top: 40px;
+}
+
+.left-side h1{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: var(--texto-primario);
+    margin-right: 10px;
+}
+
+.left-side img{
+    width: 370px;
+    height: 370px;
+}
+
+.right-side{
+    width: 40vw;
+    height: 100%;
+    margin-top: 40px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    border-radius: 40px;
+    background-color:transparents;
+}
+
+.right-side >h1{
+    text-align: center;
+    color: var(--texto-primario);
+    padding-bottom: 10px;
+    text-decoration: underline  var(--contorno-texto);
+    font-family: Poppins-Bold;
+}
+
+
+.right-side form{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.right-side form .textfield{
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.right-side form .textfield label{
+    color: var(--texto-primario);
+    text-decoration: underline 2px var(--contorno-texto);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    font-family: Poppins-SemiBold;
+}
+
+.right-side form .textfield input{
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 15px;
+    color: var(--texto-primario);
+    background-color: var(--background-secundario);
+    box-shadow: 3px/*direita-esquerda*/ 3px/*cima-baixo*/ 10px var(--detalhes-primario);
+}
+
+.right-side form .textfield input:hover{
+    box-shadow: none;
+    border: groove 0.5px  var(--detalhes-primario);
+
+}
+
+.right-side form .textfield input:focus{
+    box-shadow: none;
+    border: groove 0.5px  var(--detalhes-primario);
+    transition: 0.2s ease;
+}
+.right-side> form> button{
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        padding: 5px;
+        background-color: var(--contorno-texto);
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        cursor: pointer;
+        color: var(--texto-primario);
+        font-family: Poppins-Bold;
+        box-shadow: 1px 3px 5px var(--detalhes-primario);
+        transition: 0.2s ease;
+}
+.right-side > form> p{
+    font-size: 15px;
+    color: var(--texto-primario);
+    margin-bottom: 10px;
+}
+
+.right-side > form > button:hover{
+    box-shadow: none;
+    border: 2px solid var(--detalhes-primario);
+}
+
+@media screen and (min-width:700px){/*permite certas propriedades a partir desse width*/
+    .left-side{
+        display: flex;
+    }
+    .right-side{
+        margin-top: -40px;
+    }
+    
+}
+
+@media screen and (min-width:400px){
+    .theme{
+        display: flex;
+    }
+}
+
+@media screen and (max-width:300px){/*aplica formatação para dispositivos de até 300px*/
+
+    .banner{
+        justify-content: space-around;
+    }
+}
+
+@media screen and (min-width:700px){
+    .right-side{
+        background-color:var(--background-primario);
+        box-shadow: 3px/*direita-esquerda*/ 3px/*cima-baixo*/ 10px var(--detalhes-primario);
+    }
+}
+
+@media screen and (min-width:1000px){
+    .menu-bar{
+        display:flex;
+    }
+    
+}

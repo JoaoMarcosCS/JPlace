@@ -1,0 +1,492 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: Poppins-Regular;
+    src: url('../font/Poppins-Regular.ttf');
+}
+
+
+@font-face{
+    font-family: Poppins-Medium;
+    src: url('../font/Poppins-Medium.ttf');
+}
+
+
+@font-face{
+    font-family: Poppins-Bold;
+    src: url('../font/Poppins-Bold.ttf');
+}
+
+
+@font-face{
+    font-family: Poppins-SemiBold;
+    src: url('../font/Poppins-SemiBold.ttf');
+}
+
+
+body{
+    background-color: #dbdad5;    
+}
+
+html{
+    font-family: Poppins-Regular;
+    overflow-x: hidden;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height:100%;
+    background-color: #ffee00;
+    color: black;
+    width: 78px;
+    
+    padding: 6px 14px;
+    z-index: 1000;
+    transition: all 0.5s ease;
+    
+}
+
+.sidebar.active{
+    width: 258px;
+}
+
+img{
+    width: 22px;
+    height: 22px;
+}
+
+.logo-div{
+    margin-top: 20px;
+    justify-content: center;
+    position: relative;
+}
+
+.sidebar .logo-div .logo{
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.sidebar.active .logo-div .logo{
+opacity: 1;
+pointer-events: none;
+}
+
+.logo-div .logo i{
+font-size: 28px;
+margin-left: 10px;
+cursor: pointer;
+}
+
+.logo-div .logo img{
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.logo-div .logo .logo-name{
+font-family: Poppins-Bold;
+font-size: 35px;
+font-weight: 400;
+}
+
+.sidebar #btn{
+position: absolute;
+display: flex;
+color: #fff;
+left: 30%;
+top: 6px;
+font-size: 20px;
+width: 22px;
+height: 22px;
+text-align: center;
+cursor: pointer;
+line-height: 50px;
+transform: translateY(-50);
+}
+
+.sidebar.active #btn{
+left: 80%;
+}
+
+.sidebar ul{
+margin-top: 40px;
+margin-left: 5px;
+}
+
+.sidebar ul li{
+position: relative;
+height: 50px;
+width: 100%;
+margin-top: 10px;
+list-style: none;
+border-radius: 12px;
+line-height: 50px;
+}
+
+.sidebar ul li .tooltip{
+position: absolute;
+left: 128px;
+top: 50%;
+transform: translate(-50%,-50% );
+border-radius: 6px;
+height: 35px;
+width: 122px;
+background: #ffee00;
+line-height: 35px;
+text-align: center;
+font-weight: bold;
+box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+pointer-events: none;
+opacity: 0;/*mesma coisa que display:none nessa situação*/
+transition: 0s;
+display: block;
+}
+
+.sidebar.active ul li .tooltip{
+display: none;
+}
+
+.sidebar ul li:hover .tooltip{
+transition:  all 0.5s ease;
+opacity: 1;
+top: 50%;
+}
+
+.sidebar .links_names{
+opacity: 0;
+pointer-events: none;
+padding-left: 10px;
+transition: all 0.5s ease;
+}
+
+.sidebar.active .links_names{
+opacity: 1;
+pointer-events: auto;
+
+}
+
+.sidebar ul li input{
+position: absolute;
+height: 100%;
+width: 100%;
+left: 0;
+top: 0;
+border-radius: 12px;
+outline: none;
+border: none;
+padding-left: 50px;
+font-size: 18px;
+background: #1d1b31;
+color: #fff;
+}
+
+.sidebar ul li a{
+color: #11101d;
+display: flex;
+align-items: center;
+text-decoration: none;
+transition: all 0.1s ease;
+border-radius: 12px;
+font-weight: bold;
+white-space: nowrap;
+}
+
+.sidebar ul li a:hover{
+color:#11101d;
+background: #fff;
+
+}
+
+.sidebar ul li img{
+height: 22px;
+min-width: 22px;
+line-height: 50px;
+border-radius: 12px;
+margin-left: 10px;
+text-align: center;
+}
+
+
+.sidebar .profile_content{
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+
+
+.sidebar .profile_content .profile{
+    position: relative;
+    padding:10px 6px;
+    background: #ffc400;
+    height: 60px;
+}
+
+.profile_content .profile .profile_details{
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.sidebar.active .profile .profile_details{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.profile .profile_details img{
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.profile .profile_details .name_job{
+    margin-left: 10px;
+}
+
+.profile .profile_details .name{
+    font-size: 15px;
+     font-weight: 400;
+}
+
+.profile .profile_details .job{
+    font-size: 12px;
+}
+
+.profile #log_out{
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.sidebar.active .profile #log_out{
+    left: 88%;
+    bottom: 25%;
+}
+
+
+.main{
+    position: absolute;
+    height: 100%;
+    width: 94.3%;
+    left: 78px;
+    background-color: #dbdad5;
+}
+
+.bar-mercado{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(239, 255, 255);
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    transition: ease 0.2s;
+    position: fixed;
+    color: #0c0c0e;
+    z-index: 100;
+    flex-direction: row;
+}
+.bar-mercado.sticky{
+    background-color: #ffee00;
+}
+
+.logo-mercado{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 30px;
+    font-family: Poppins-Bold;
+}
+
+.logo-mercado img{
+    width: 40px;
+    height: 40px;
+}
+
+.search-bar{
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color:#ffc400;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 14px 28px rgb(0,0,0,0.25), 0 10px 10px rgb(0,0,0,0.22);
+    transition: 0.2s ease;
+    
+}
+
+.search-bar input{
+    outline: none;
+    border: none;
+    width: 200px;
+    font-weight: 500;
+    transition: 0.8s;
+    background-color: #ffc400;
+}
+
+.search-bar a .fa{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition: 0.2s ease;
+}
+.search-bar a .fa:hover{
+    font-size: 22px;
+}
+
+.boas-vindas{
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-family: Poppins-Bold;
+}
+.titulo{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 100px;
+}
+
+.titulo::after{
+    content: '';
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 0.2rem;
+    background-color:#ffc400;
+
+}
+
+.titulo p{
+    font-size: 50px;
+    font-family: Poppins-Bold;
+    letter-spacing: 1px;
+}
+
+.vitrini{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    margin-bottom: 30px
+
+}
+
+.produto{
+    width: 20%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 14px 28px rgb(0,0,0,0.25), 0 10px 10px rgb(0,0,0,0.22);
+    margin: 10px;
+    ;
+    border: 1px solid rgb(228, 224, 224);
+}
+
+.produto .produto-imagem{
+    height: 220px;
+    width: 100%;
+}
+
+.produto .produto-imagem img{
+    width: 100%;
+    height: 100%;
+}
+
+.produto-detalhes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80px;
+}
+
+
+.produto-info{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    
+}
+
+.produto-detalhes .nome-produto{
+    font-family: Poppins-SemiBold;
+    font-size: 20px;
+}
+
+.produto-detalhes .preco-produto{
+    font-family: Poppins-SemiBold;
+    font-size: 15px;
+}
+
+.produto-comprar{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+.produto-comprar button{
+    border: none;
+    outline: none;
+    height: 100%;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: Poppins-Bold;
+    width: 101%;
+    transition: 0.2s ease;
+    border-radius: 8px;
+    background-color: #0c0c0e;
+    color: #ffc400;
+}
+
+.produto-comprar button:hover{
+    color: #0c0c0e;
+    background-color: #ffc400;
+    font-family: Poppins-Bold;
+}
+
+
+
+
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPlace | Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="../icones/JP-1.png" class="icone_browser">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="logo">
+            <img src="../icones/JP-1.png" alt="">
+            JPlace
+        </div>
+        <div class="menu-bar">
+            <div class="menu-item">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <a target="_blank" href="../home.html">Home</a>
+            </div>
+            <div class="menu-item">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                <a target="_blank" href="../cadastrar/cadastrar.html">Cadastrar</a>
+            </div>
+            <div class="menu-item">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <a  target="_blank" href="../Login/login.html">Login</a>
+            </div>
+        </div>
+
+        <div class="theme">
+            <img src="../icones/sun_dark.png" alt="" class="icone">
+            <div class="toggle">
+                <input id="switch" type="checkbox" name="theme">
+                <label for="switch">Toggle</label>
+            </div>
+            <img src="../icones/moon_dark.png" alt="" class="icone">
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="left-side">
+            <h1>Cadastre-se já para poder <br>
+                entrar no JPlace!
+            </h1>
+            <img src="../icones/ilustrador_cadastrar.svg" alt="">
+        </div>
+        <div class="right-side">
+            <h1>Login</h1>
+            
+            <form action="#">
+                <div class="textfield">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" name="usuario" id="usuario" placeholder="usuario">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="" placeholder="senha">
+                </div>
+                <button class="submit">Login</button>
+                <p>Não tem uma conta? <a href="../cadastrar/cadastrar.html" target="_blank">Cadastre-se!</a></p>
+            </form>
+       
+        </div>
+    </div>
+  <script src="login.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      $(".btn-menu").click(function(){
+          $(".menu-bar").show()
+      });
+      $(".btn-close").click(function(){
+          $(".menu-bar").hide()
+      });
+
+  </script>
+</body>
+</html>
